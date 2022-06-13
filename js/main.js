@@ -4,14 +4,21 @@ const numberAnswer = document.querySelectorAll('.number');
 const gefunden = document.querySelectorAll('.gefunden__text');
 const button = document.querySelector('.button')
 
-let array = numberQuestion;
+
+button1.addEventListener('click', ()=>{
+  numberQuestion.forEach( (e)=>{
+    e.style.color= 'black';
+  })
+  console.log('balck')
+})
+
 button2.addEventListener('click', ()=>{
 
   numberQuestion.forEach( (e)=>{
-    e.value= ''
+    e.style.color= 'bisque'
   })
+  console.log('red')
 })
-
 
 const arrayQuestion = {
   numberQ1: numberQuestion[0].value,
