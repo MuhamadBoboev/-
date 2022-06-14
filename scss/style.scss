@@ -36,6 +36,21 @@ body {
 .display-none {
   display: none
 }
+/* ************************************************************/
+.over {
+  margin-top: 300px;
+  background-color: aqua;
+  height: 300px;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  text-align: center;
+}
+.over__text {
+  padding: 50px 0;
+  font-size: 55px;
+}
+
 .main {
   margin: 100px 0;
   // max-width: 100%;
@@ -57,12 +72,12 @@ body {
   background-color: bisque;
 }
 .versuche {
-
+  background-color: rgb(252, 229, 198);
 }
 .versuche__text {
-  padding: 30px 0;
-  font-size: 35px;
-  color: white;
+  padding: 40px 0;
+  font-size: 45px;
+  color: rgb(0, 0, 0);
 }
 .win-1 .win {
   background-color: green;
@@ -82,17 +97,70 @@ body {
 .win-1 .win {
   background-color: green;
 }
+.block-1-buttons__input {
+}
 .block-1-buttons {
   display: flex;
-  text-align: center;
+  justify-content: space-between;
 }
 
 .block-1-button {
   display: inline-block;
-
+  background-color: aqua;
   flex: 0 1 50%;
   padding: 30px;
   font-size: 40px;
+}
+.form_radio {
+	margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.form_radio input[type=radio] {
+	display: none;
+}
+.form_radio label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+	margin-right: 0;
+	line-height: 18px;
+	user-select: none;
+}
+.form_radio label:before {
+	content: "";
+	display: inline-block;
+	width: 17px;
+	height: 18px;
+	position: absolute;
+	left: 0;
+  // border-radius: 50%;
+  // background-color: rgb(245, 109, 6);
+	// background: url(/img/radio-1.png) 0 0 no-repeat;
+}
+
+/* Checked */
+.form_radio input[type=radio]:checked + label:before {
+	// background: url(/img/radio-2.png) 0 0 no-repeat;
+  // width: 110%;
+  // height: 110%;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(247, 140, 0);
+}
+
+/* Hover */
+.form_radio label:hover:before {
+	filter: brightness(120%);
+}
+
+/* Disabled */
+.form_radio input[type=radio]:disabled + label:before {
+	filter: grayscale(100%);
 }
 .button {
   padding: 30px 0;
@@ -104,8 +172,8 @@ body {
   background-color:blueviolet;
 }
 .gefunden {
-  background-color: rgb(197, 197, 197);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   display: flex;
   width: 100%;
 }
@@ -119,4 +187,19 @@ body {
 }
 .gefunden__text {
   padding-left: 15px;
+}
+.fertig {
+  width: 100%;
+
+}
+.fertig__button-block {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.fertig__button {
+  padding: 30px;
+  font-size: 45px;
+  background-color: aquamarine;
+  cursor: pointer;
 }

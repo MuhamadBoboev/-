@@ -14,8 +14,13 @@
 
 <body>
   <div class="wrapper">
+    <div class="over">
+      <p class="over__text">Игра закончена!</p><br>
+      <p class="over__text">Вы <span class="over__span">Проиграли</span></p><br>
+      <span class="over__text ovet__answer"></span>
+    </div>
     <div class="_container ">
-      <div class="main">
+      <div class="main ">
         <div class="versuche">
           <p class="versuche__text" >Осталось попытов: <span class="versuche__span">5</span></p>
         </div>
@@ -24,10 +29,16 @@
           <input id="a2" class="number-1 win-2"></input>
           <input id="a3" class="number-1 win-3"></input>
           <input id="a4" class="number-1 win-4"></input>
-          <div class="block-1-buttons">
-            <button id="button1" class="block-1-button" >Показать</button>
-            <button id="button2" class="block-1-button" >Скрить</button>
-          </div>
+          <form class="block-1-buttons">
+            <div class="form_radio">
+              <input class="block-1-buttons__input" type="radio" name="buttons" id="button1" >
+              <label class="block-1-button" for="button1" >Показать</label>
+            </div>
+            <div class="form_radio">
+              <input class="block-1-buttons__input" type="radio" name="buttons" id="button2" >
+              <label class="block-1-button" for="button2" >Скрить</label>
+            </div>
+          </form>
         </div>
         <form class="form-answer">
           <div classs="main-block">
@@ -65,7 +76,13 @@
             </span>
           </p>
         </div>
+        <div class="fertig">
+          <div class="fertig__button-block">
+            <button class="fertig__button" type="button">Закончить игру</button>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
   <script src="js/main.js"></script>

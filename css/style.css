@@ -48,6 +48,25 @@ body {
   display: none;
 }
 
+/* ************************************************************/
+.over {
+  margin-top: 300px;
+  background-color: aqua;
+  height: 300px;
+  width: 100%;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.over__text {
+  padding: 50px 0;
+  font-size: 55px;
+}
+
 .main {
   margin: 100px 0;
   background-color: red;
@@ -78,6 +97,16 @@ body {
   font-size: 40px;
   padding: 30px 0;
   background-color: bisque;
+}
+
+.versuche {
+  background-color: rgb(252, 229, 198);
+}
+
+.versuche__text {
+  padding: 40px 0;
+  font-size: 45px;
+  color: rgb(0, 0, 0);
 }
 
 .win-1 .win {
@@ -129,16 +158,77 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .block-1-button {
   display: inline-block;
+  background-color: aqua;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 50%;
           flex: 0 1 50%;
   padding: 30px;
   font-size: 40px;
+}
+
+.form_radio {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.form_radio input[type=radio] {
+  display: none;
+}
+
+.form_radio label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 0;
+  line-height: 18px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.form_radio label:before {
+  content: "";
+  display: inline-block;
+  width: 17px;
+  height: 18px;
+  position: absolute;
+  left: 0;
+}
+
+/* Checked */
+.form_radio input[type=radio]:checked + label:before {
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(247, 140, 0);
+}
+
+/* Hover */
+.form_radio label:hover:before {
+  -webkit-filter: brightness(120%);
+          filter: brightness(120%);
+}
+
+/* Disabled */
+.form_radio input[type=radio]:disabled + label:before {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .button {
@@ -153,8 +243,8 @@ body {
 }
 
 .gefunden {
-  background-color: rgb(197, 197, 197);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -178,4 +268,25 @@ body {
 
 .gefunden__text {
   padding-left: 15px;
+}
+
+.fertig {
+  width: 100%;
+}
+
+.fertig__button-block {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fertig__button {
+  padding: 30px;
+  font-size: 45px;
+  background-color: aquamarine;
+  cursor: pointer;
 }
