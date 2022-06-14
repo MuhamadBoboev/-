@@ -39,8 +39,8 @@ body {
 /* ************************************************************/
 .over {
   margin-top: 300px;
-  background-color: aqua;
-  height: 300px;
+  background-color: #c0e617;
+  height: 100%;
   width: 100%;
   display: none;
   flex-direction: column;
@@ -54,8 +54,9 @@ body {
 .main {
   margin: 100px 0;
   // max-width: 100%;
-  background-color: red;
+  background-color: #c0e617;
   text-align: -webkit-center;
+  overflow: hidden;
 }
 .main-block-1 {
   display: flex;
@@ -78,6 +79,12 @@ body {
   padding: 40px 0;
   font-size: 45px;
   color: rgb(0, 0, 0);
+}
+.versuche__text.active {
+  transition: all 0.3s;
+  transform: scale(2);
+  background-color: red;
+  color: aliceblue;
 }
 .win-1 .win {
   background-color: green;
@@ -196,6 +203,12 @@ body {
   text-align: center;
   display: flex;
   justify-content: center;
+}
+.over__button {
+  padding: 30px;
+  font-size: 45px;
+  background-color: aquamarine;
+  cursor: pointer;
 }
 .fertig__button {
   padding: 30px;

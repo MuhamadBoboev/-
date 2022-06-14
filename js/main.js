@@ -1,6 +1,8 @@
 'use script'
 const mainBlock = document.querySelector('.main');
+const mainBlock1 = document.querySelector('.main-block__1');
 const overBlock = document.querySelector('.over');
+const overButton = document.querySelector('.over__button')
 const fertigButton = document.querySelector('.fertig__button');
 
 const numberQuestion = document.querySelectorAll('.number-1');0
@@ -13,7 +15,6 @@ button1.addEventListener('click', ()=>{
   numberQuestion.forEach( (e)=>{
     e.style.color= 'black';
   })
-  console.log('balck')
 })
 
 button2.addEventListener('click', ()=>{
@@ -21,7 +22,6 @@ button2.addEventListener('click', ()=>{
   numberQuestion.forEach( (e)=>{
     e.style.color= 'bisque'
   })
-  console.log('red')
 })
 
 const arrayQuestion = {
@@ -42,44 +42,89 @@ button.addEventListener('click', function() {
     document.querySelectorAll('.win-1')[0].style.backgroundColor='green';
     document.querySelectorAll('.win-1')[1].style.backgroundColor='green';
     gefunden[0].innerText =  numberQuestion[0].value;
-    console.log('true');
   } else {
     document.querySelectorAll('.win-1')[0].value = '';
     document.querySelectorAll('.win-1')[1].value = '';
     document.querySelectorAll('.win-1')[0].style.backgroundColor='bisque'
     document.querySelectorAll('.win-1')[1].style.backgroundColor='white'
   }
-  if ( arrayQuestion.number2 == arrayAnswer.number2) {
-    console.log('2')
-  }
-  if ( arrayQuestion.number3 == arrayAnswer.number3) {
-    console.log('3')
-  }
-  if ( arrayQuestion.number4 == arrayAnswer.number4) {
-    console.log('4')
-  }
+  ifen()
 
   const counter = document.querySelector('.versuche__span');
   const counterNumber = Number(counter.innerText);
-  console.log(counterNumber)
   counter.innerText = counterNumber - 1;
   if(counter.innerText == 0) {
     mainBlock.style.display='none'
     overBlock.style.display = 'flex';
     for(let a in numberQuestion) {
-      overBlock.querySelector('.ovet__answer').innerText = `${numberQuestion[a]}`
+      overBlock.querySelector('.ovet__answer').innerText = numberQuestion[0].value
     }
-    // overBlock.querySelector('.ovet__answer');
 
   } else {
     mainBlock.style.display='inherit'
     overBlock.style.display = 'none'
   }
-})
-fertigButton.addEventListener('click', ()=> {
-  mainBlock.style.display='none'
-  overBlock.style.display = 'flex';
-  for(let a in numberQuestion) {
-    overBlock.querySelector('.ovet__answer').innerText = `${numberQuestion[a]}`
+  const overText = overBlock.querySelector('.ovet__answer').innerText = numberQuestion[0].value + numberQuestion[1].value +numberQuestion[2].value +numberQuestion[3].value
+  const overSpan = document.querySelector('.over__span');
+  if(overText.length == 4) {
+    mainBlock.style.display='none'
+    overBlock.style.display = 'flex';
+    if(overText.length == 4) {
+        overSpan.innerText= 'Выиграли!'
+      } else {
+          overSpan.innerText= 'Проиграли!'
+      }
   }
+  scale()
+  function scale() {
+    document.querySelector('.versuche__text').classList.toggle('active')
+  }
+  setTimeout(scale, 1000);
+
+})
+function ifen() {
+  function BD(a, b) {
+    if ( (numberQuestion[a].value === numberAnswer[b].value) && Number(numberQuestion[a].value) > 0 ) {
+      document.querySelectorAll(`.win-${a+1}`)[0].style.backgroundColor='green';
+      document.querySelectorAll(`.win-${a+1}`)[1].style.backgroundColor='green';
+      gefunden[a].innerText =  numberQuestion[a].value;
+    } else {
+      document.querySelectorAll(`.win-${a+1}`)[0].value = '';
+      document.querySelectorAll(`.win-${a+1}`)[1].value = '';
+      document.querySelectorAll(`.win-${a+1}`)[0].style.backgroundColor='bisque'
+      document.querySelectorAll(`.win-${a+1}`)[1].style.backgroundColor='white'
+    }
+  }
+  if (true ) {
+    BD(0, 0)
+  }
+  if (true ) {
+    BD(1, 1)
+  }
+  if (true ) {
+    BD(2, 2)
+  }
+  if (true ) {
+    BD(3, 3)
+  }
+}
+fertigButton.addEventListener('click', ()=> {
+  over();
+  ifen()
+  function over() {
+    mainBlock.style.display='none'
+    overBlock.style.display = 'flex';
+    const overText = overBlock.querySelector('.ovet__answer').innerText = numberQuestion[0].value + numberQuestion[1].value +numberQuestion[2].value +numberQuestion[3].value
+    const overSpan = document.querySelector('.over__span');
+    if(overText.length == 4) {
+      overSpan.innerText= 'Выиграли!'
+    } else {
+        overSpan.innerText= 'Проиграли!'
+    }
+  }
+})
+overButton.addEventListener('click', function(){
+  mainBlock.style.display='inherit'
+  overBlock.style.display = 'none';
+
 })
